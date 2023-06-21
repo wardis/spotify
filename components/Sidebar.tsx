@@ -1,14 +1,16 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useMemo } from "react";
+import { PropsWithChildren, useMemo } from "react";
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import Box from "./Box";
 import SidebarItem from "./SidebarItem";
 import Library from "./Library";
 
-const Sidebar = ({ children }: { children: React.ReactNode }) => {
+interface SidebarProps extends PropsWithChildren {}
+
+const Sidebar = ({ children }: SidebarProps) => {
   const pathname = usePathname();
 
   const routes = useMemo(

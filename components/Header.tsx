@@ -8,14 +8,15 @@ import { BiSearch } from "react-icons/bi";
 
 import Button from "./Button";
 import { PropsWithChildren } from "react";
+import useAuthModal from "@/hooks/useAuthModal";
 
 interface HeaderProps extends PropsWithChildren {
   className?: string;
 }
 
 const Header = ({ children, className }: HeaderProps) => {
+  const { onOpen } = useAuthModal();
   const router = useRouter();
-  console.log(router);
 
   const handleLogout = () => {};
 
@@ -53,14 +54,14 @@ const Header = ({ children, className }: HeaderProps) => {
           <>
             <div>
               <Button
-                onClick={() => {}}
+                onClick={() => onOpen()}
                 className="bg-transparent font-medium text-neutral-300"
               >
                 Sign up
               </Button>
             </div>
             <div>
-              <Button onClick={() => {}} className="bg-white px-6 py-2">
+              <Button onClick={() => onOpen()} className="bg-white px-6 py-2">
                 Log in
               </Button>
             </div>
